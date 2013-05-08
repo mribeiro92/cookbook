@@ -1,12 +1,11 @@
-# Grupo
+## Grupo
 
-*Diogo Nunes 21004059
-*Miguel Correia 21108013
-*Miguel Ribeiro 21005919
-
-## Changelog
+-Diogo Nunes 21004059
+-Miguel Correia 21108013
+-Miguel Ribeiro 21005919
 
 ## Changelog
+
 #### Versão 1.1:
 - Design alterado
 
