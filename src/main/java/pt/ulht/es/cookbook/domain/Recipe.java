@@ -1,14 +1,19 @@
 package pt.ulht.es.cookbook.domain;
 
+import java.util.Date;
+
 public class Recipe {
 
 	private String titulo, problema, receita, id;
 	
-	public Recipe(String titulo, String problema, String receita) {
+	//private Date datacriacao;
+	
+	public Recipe(String titulo, String problema, String receita /*, Date datacriacao*/) {
 		
 		this.titulo=titulo;
 		this.problema=problema;
 		this.receita=receita;		
+		//this.datacriacao=datacriacao;
 	}
 
 	public String getTitulo(){

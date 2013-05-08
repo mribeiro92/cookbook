@@ -18,6 +18,9 @@ Problema:</td><td><textarea rows="1" cols="25" name="prob"></textarea>
 Receita:</td><td><textarea rows="5" cols="25" name="rec"></textarea>
 </td></tr>
 <tr><td>
+Autor:</td><td><input type="text" name="auto">
+</td></tr>
+<tr><td>
 <input type="submit" value="Criar !"></td><td><input type="reset" value="Limpar">
 </td></tr>
 </table>

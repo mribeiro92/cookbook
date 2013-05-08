@@ -8,7 +8,7 @@
 </head>
 <body style="font-family:Arial;">
 
-	Bem vindo ao nosso cucbuc de Eng.Soft. A data de hoje eh ${currentTime}<br><br><br>
+	Este é um cookbook espectacular sobre coisas de Informática, feito para Eng.Software. A data de hoje é ${currentTime} e futuramente será usada como elemento de registo de uma receita<br><br><br>
 	<table align="center">
 	<tr><td>
 	<a href="/recipes/create"><img src="/static/adicionar.jpg" alt="Criar nova receita" height="120" width="120"></a><br>

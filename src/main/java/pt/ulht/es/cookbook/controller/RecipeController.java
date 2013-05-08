@@ -2,6 +2,7 @@ package pt.ulht.es.cookbook.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -35,9 +36,11 @@ public class RecipeController {
     public String createRecipe(@RequestParam Map<String,String> params) {
     	String titulo = params.get("tit");
     	String problema = params.get("prob");
-    	String receita = params.get("rec");    	
+    	String receita = params.get("rec");
+    	//Date datacriacao = new Date;
+    	
     
-    Recipe recipe=new Recipe(titulo, problema, receita);
+    Recipe recipe=new Recipe(titulo, problema, receita /*, datacriacao*/);
     CookbookManager.saveRecipe(recipe);
     return "redirect:/recipes/"+recipe.getId();
     }

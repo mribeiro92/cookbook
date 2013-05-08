@@ -11,11 +11,15 @@
 
 <h1>Detalhes da receita</h1>
 <h1>${recipes.titulo}</h1><br>
+<i>Por:${recipes.autor}</i><br><br><br>
 <b>Problema</b>
 <p>${recipes.problema}</p><br>
 <b>Solução</b>
-<p>${recipes.receita}</p><br>${recipes.id}<br><br>
+<p>${recipes.receita}</p><br><br>
+<u>Criação</u>
+<p>${recipes.data}</p><br><br><br>
 <a href="javascript:window.history.go(-1)"><img src="/static/voltar.jpg" alt="Voltar" height="50" width="50"></a>
+<a href="/"><img src="/static/casa.png" alt="Voltar" height="50" width="50"></a>
 
 </body>
 </html>
