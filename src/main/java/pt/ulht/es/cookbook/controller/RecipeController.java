@@ -36,16 +36,17 @@ public class RecipeController {
     public String createRecipe(@RequestParam Map<String,String> params) {
     	String titulo = params.get("tit");
     	String problema = params.get("prob");
-    	String receita = params.get("rec");
-    	//Date datacriacao = new Date;
+    	String receita = params.get("rec");    	
+    	Date data = new Date();
+    	String autor = params.get("auto"); 
     	
-    
-    Recipe recipe=new Recipe(titulo, problema, receita /*, datacriacao*/);
+    Recipe recipe=new Recipe(titulo, problema, receita, data, autor);
     CookbookManager.saveRecipe(recipe);
     return "redirect:/recipes/"+recipe.getId();
     }
     
-    @RequestMapping(method=RequestMethod.GET, value="/recipes/{id}")
+
+	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}")
     public String showRecipe(Model model, @PathVariable String id) {
 
     	Recipe recipe=CookbookManager.getRecipe(id);
