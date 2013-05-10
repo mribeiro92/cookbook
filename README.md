@@ -6,6 +6,9 @@
 
 ## Changelog
 
+#### Versão 1.2:
+- Com autores e datas
+
 #### Versão 1.1:
 - Design alterado
 
