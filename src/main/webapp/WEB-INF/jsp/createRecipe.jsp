@@ -1,12 +1,13 @@
 <html>
 <head>
 <link rel="shortcut icon" href="/static/favicon.ico" >
+<title>Criar Receita</title>
 </head>
 
-<body style="font-family:Arial;">
-
-<form method="POST" name="criar" action="/recipes">
+<body>
 <h1>Criar Receita</h1>
+<form method="POST" name="criar" action="/recipes">
+<div class="caixa" align="center">
 <table>
 <tr><td>
 Titulo:</td><td><input type="text" name="tit">
@@ -24,9 +25,32 @@ Autor:</td><td><input type="text" name="auto">
 <input type="submit" value="Criar !"></td><td><input type="reset" value="Limpar">
 </td></tr>
 </table>
+</div>
 </form>
 <br><br>
-<a href="javascript:window.history.go(-1)"><img src="/static/voltar.jpg" alt="Voltar" height="50" width="50"></a>
+<a href="javascript:window.history.go(-1)"><img src="/static/voltar.png" alt="Voltar" height="50" width="50"></a>
 
 </body>
 </html>
+
+<style type="text/css"><!--
+
+body {
+	background-color:#777777;
+	font-family:Arial;
+} 
+
+.caixa {
+	text-color:#FFFFFF;
+	border-width: 2px;
+	border-style:solid;
+	border-color:red;
+	background-color:#CCCCCC;
+	margin: 30;
+	padding: 25;
+}
+
+.orange{
+background-color:#FFA500;
+}
+--></style>

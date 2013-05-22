@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import pt.ist.fenixframework.pstm.AbstractDomainObject;
 import pt.ulht.es.cookbook.domain.CookbookManager;
 import pt.ulht.es.cookbook.domain.Recipe;
 
@@ -21,7 +23,7 @@ public class RecipeController {
   
     @RequestMapping(method=RequestMethod.GET, value="/recipes")
     public String listRecipes(Model model) {
-    	Collection<Recipe> recipes=CookbookManager.getRecipes();
+    	Set<Recipe> recipes =CookbookManager.getInstance().getRecipeSet();
         model.addAttribute("recipes", recipes);
         return "listRecipes";
     }
@@ -37,19 +39,17 @@ public class RecipeController {
     	String titulo = params.get("tit");
     	String problema = params.get("prob");
     	String receita = params.get("rec");    	
-    	Date data = new Date();
     	String autor = params.get("auto"); 
     	
-    Recipe recipe=new Recipe(titulo, problema, receita, data, autor);
-    CookbookManager.saveRecipe(recipe);
-    return "redirect:/recipes/"+recipe.getId();
+    Recipe recipe=new Recipe(titulo, problema, receita, autor);
+    return "redirect:/recipes/"+recipe.getExternalId();
     }
     
 
 	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}")
     public String showRecipe(Model model, @PathVariable String id) {
 
-    	Recipe recipe=CookbookManager.getRecipe(id);
+    	Recipe recipe=AbstractDomainObject.fromExternalId(id);
     	model.addAttribute("recipes", recipe);
     	if(recipe != null){
 	    
@@ -58,7 +58,22 @@ public class RecipeController {
     		return "recipeNotFound";
     	}
     }
-        
+     
+	
+	/*@RequestMapping(method=RequestMethod.GET, value="/recipes/delete/{id}")
+    public String deleteRecipe(@PathVariable("id") String id) {
+    	Recipe recipe=CookbookManager.getRecipe(id);
+        CookbookManager.deleteRecipe(recipe);
+    	return "home";
+
+    }
     
+	@RequestMapping(method=RequestMethod.GET, value="/recipes/edit/{id}")
+    public String editingRecipe(Model model, @PathVariable String id) {		
+    	Recipe recipe=CookbookManager.getRecipe(id);
+    	model.addAttribute("recipes", recipe);
+    	return "editingRecipe";
+
+    }*/
     
 }

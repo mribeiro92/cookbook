@@ -4,24 +4,39 @@
 <head>
 <link rel="shortcut icon" href="/static/favicon.ico" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Homepage</title>
+<title>Cookbook Manager xpto</title>
 </head>
-<body style="font-family:Arial;">
+<body>
 
 	Este é um cookbook espectacular sobre coisas de Informática, feito para Eng.Software. A data de hoje é ${currentTime} e futuramente será usada como elemento de registo de uma receita<br><br><br>
 	<table align="center">
 	<tr><td>
-	<a href="/recipes/create"><img src="/static/adicionar.jpg" alt="Criar nova receita" height="120" width="120"></a><br>
+	<a href="/recipes/create"><img src="/static/adicionar.png" alt="Criar nova receita" height="120" width="120"></a><br>
 	</td><td>
 	<a href="/recipes"><img src="/static/lista.png" alt="Listar todas as receitas" height="120" width="120"></a><br>
-	</td><td>
-	<a href=""><img src="/static/remover.jpg" alt="Eliminar receita" height="120" width="120"></a><br>
-	</td><td>
-	<a href=""><img src="/static/editar.png" alt="Editar receita" height="120" width="120"></a><br>
-	</td><td>
-	<a href=""><img src="/static/procurar.png" alt="Pesquisar receitas" height="120" width="120"></a><br>
+	</td><!--<td>
+	<a href=""><img src="/static/procurar.png" alt="Pesquisar receitas" height="120" width="120"></a><br>-->
 	</td></tr>
 	</table>
 	
 </body>
 </html>
+
+<style type="text/css"><!--
+
+body {
+	background-color:#777777;
+	font-family:Arial;
+} 
+
+.caixa {
+	text-color:#FFFFFF;
+	border-width: 2px;
+	border-style:solid;
+	border-color:red;
+}
+
+.orange{
+background-color:#FFA500;
+}
+--></style>
