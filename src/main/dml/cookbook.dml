@@ -8,11 +8,24 @@ class Recipe {
 	String problema;
 	String receita;
 	String autor;
+	String dific;
 }
 
+class Tag{
+	String tag;
+}
 
 relation CookbookManagerHasRecipe {
 	CookbookManager playsRole cookbookManager { multiplicity 1..1; }
 	Recipe playsRole recipe { multiplicity 0..*; }	
 }
 
+relation CookbookManagerHasTag {
+	CookbookManager playsRole cookbookManager { multiplicity 1..1; }
+	Tag playsRole tag { multiplicity 0..*; }	
+}
+
+relation RecipeHasTag {
+	Recipe playsRole recipe { multiplicity 0..*; }
+	Tag playsRole tag { multiplicity 0..*; }
+}

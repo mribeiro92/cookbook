@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import pt.ist.fenixframework.pstm.AbstractDomainObject;
 import pt.ulht.es.cookbook.domain.CookbookManager;
 import pt.ulht.es.cookbook.domain.Recipe;
+import pt.ulht.es.cookbook.domain.Tag;
 
 @Controller
 public class RecipeController {
@@ -34,14 +35,20 @@ public class RecipeController {
     	return "createRecipe";
     }
     
+    
     @RequestMapping(method=RequestMethod.POST, value="/recipes")
     public String createRecipe(@RequestParam Map<String,String> params) {
     	String titulo = params.get("tit");
     	String problema = params.get("prob");
     	String receita = params.get("rec");    	
     	String autor = params.get("auto"); 
+    	String dific = params.get("dif"); 
+    	String[] tag1 = params.get("tag1").split(";");
     	
-    Recipe recipe=new Recipe(titulo, problema, receita, autor);
+    Recipe recipe=new Recipe(titulo, problema, receita, autor, dific);
+    for(String tag : tag1){
+    	recipe.addTag(new Tag(tag));
+    }
     return "redirect:/recipes/"+recipe.getExternalId();
     }
     
@@ -58,22 +65,43 @@ public class RecipeController {
     		return "recipeNotFound";
     	}
     }
-     
-	
-	/*@RequestMapping(method=RequestMethod.GET, value="/recipes/delete/{id}")
+         
+    
+	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}/delete")
     public String deleteRecipe(@PathVariable("id") String id) {
-    	Recipe recipe=CookbookManager.getRecipe(id);
-        CookbookManager.deleteRecipe(recipe);
-    	return "home";
+    	Recipe r=AbstractDomainObject.fromExternalId(id);
+        r.delete();
 
+		return "redirect:/recipes";
     }
-    
-	@RequestMapping(method=RequestMethod.GET, value="/recipes/edit/{id}")
-    public String editingRecipe(Model model, @PathVariable String id) {		
-    	Recipe recipe=CookbookManager.getRecipe(id);
-    	model.addAttribute("recipes", recipe);
-    	return "editingRecipe";
+	
+	
+	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}/edit")
+    public String showRecipeEditionForm(Model model, @PathVariable String id) {
 
-    }*/
-    
+    	Recipe recipe=AbstractDomainObject.fromExternalId(id);
+    	model.addAttribute("recipes", recipe);
+    	if(recipe != null){
+	    
+	    	return "editingRecipe";
+    	}else{
+    		return "pageNotFound";
+    	}
+    }
+	
+	/*
+    @RequestMapping(method=RequestMethod.POST, value="/edit")
+    public String editRecipe(@RequestParam Map<String,String> params, @PathVariable("id") String id) {
+    	String titulo = params.get("tit");
+    	String problema = params.get("prob");
+    	String receita = params.get("rec");    	
+    	String autor = params.get("auto"); 
+    	String dific = params.get("dif"); 
+    	Recipe r=AbstractDomainObject.fromExternalId(id);
+        r.delete();	
+        
+    Recipe recipe=new Recipe(titulo, problema, receita, autor, dific);
+    return "redirect:/recipes/"+recipe.getExternalId();
+    }
+    */
 }
