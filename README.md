@@ -6,6 +6,9 @@
 
 ## Changelog
 
+#### Versão 1.3:
+- Com persistências
+
 #### Versão 1.2:
 - Com autores e datas
 
