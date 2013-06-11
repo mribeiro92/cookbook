@@ -26,6 +26,15 @@ public class Recipe extends Recipe_Base {
 		setCookbookManager(null);
 		super.deleteDomainObject();
 	}
+
+	public void edit(String titulo, String problema, String receita, String autor, String dific) {
+    	setTitulo(titulo);
+    	setProblema(problema);
+    	setReceita(receita);
+    	setAutor(autor);
+    	setDific(dific);
+		
+	}
 	
 	
 

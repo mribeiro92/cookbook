@@ -15,7 +15,8 @@
 		<a href="/"><img src="/static/casa.png" alt="Voltar" height="50" width="50"></a>
 		<a href="/recipes/create"><img src="/static/adicionar.png" alt="Criar nova receita" height="50" width="50"></a>
 		<a href="/recipes/${recipes.externalId}/delete"><img src="/static/remover.png" alt="Eliminar receita" height="50" width="50"></a>
-		<!--<a href="/recipes/edit"><img src="/static/editar.png" alt="Editar receita" height="50" width="50"></a>-->
+		<a href="/recipes/${recipes.externalId}/edit"><img src="/static/editar.png" alt="Editar receita" height="50" width="50"></a></td>
+
 	</div>
 	<div class="caixa" align="center">
 		<h2>${recipes.titulo}</h2> (dificuldade ${recipes.dific})<br><br>

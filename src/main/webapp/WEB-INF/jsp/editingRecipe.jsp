@@ -9,7 +9,7 @@
 </head>
 <body>
 	
-	<form method="GET" name="criar" action="/recipes">
+	<form method="POST" name="editar" action="/recipes/${recipes.externalId}">
 		<h1>Editar Receita</h1>
 		<div class="caixatransparente">
 			<a href="javascript:window.history.go(-1)"><img src="/static/voltar.png" alt="Voltar" height="50" width="50"></a><br>
@@ -29,7 +29,10 @@
 				Dificuldade:</td><td><input type="text" name="dif" maxlength="1" size="1" value="${recipes.dific}"> (0 - b&aacute;sico; 9 - imposs&iacute;vel)
 				</td></tr>
 				<tr><td>
-				<input type="submit" value="Criar !"></td><td><input type="reset" value="Limpar">
+				Autor:</td><td><input type="text" name="auto" value="${recipes.autor}">
+				</td></tr>
+				<tr><td>
+				<input type="submit" value="Editar !">
 				</td></tr>
 			</table>
 		</div>

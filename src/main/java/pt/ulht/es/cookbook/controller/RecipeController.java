@@ -52,6 +52,22 @@ public class RecipeController {
     return "redirect:/recipes/"+recipe.getExternalId();
     }
     
+    @RequestMapping(method=RequestMethod.POST, value="/recipes/{id}")
+    public String editRecipe(@RequestParam Map<String,String> params, @PathVariable("id") String id) {
+    	
+    	String titulo = params.get("tit");
+    	String problema = params.get("prob");
+    	String receita = params.get("rec");    	
+    	String autor = params.get("auto"); 
+    	String dific = params.get("dif"); 
+    	String[] tag1 = params.get("tag1").split(";");
+    	
+    	Recipe recipe=AbstractDomainObject.fromExternalId(id);
+    	recipe.edit(titulo, problema, receita, autor, dific);
+
+
+    return "redirect:/recipes/"+recipe.getExternalId();
+    }
 
 	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}")
     public String showRecipe(Model model, @PathVariable String id) {
@@ -76,7 +92,7 @@ public class RecipeController {
     }
 	
 	
-	@RequestMapping(method=RequestMethod.GET, value="/recipes/{id}/edit")
+	@RequestMapping("/recipes/{id}/edit")
     public String showRecipeEditionForm(Model model, @PathVariable String id) {
 
     	Recipe recipe=AbstractDomainObject.fromExternalId(id);
@@ -89,19 +105,7 @@ public class RecipeController {
     	}
     }
 	
-	/*
-    @RequestMapping(method=RequestMethod.POST, value="/edit")
-    public String editRecipe(@RequestParam Map<String,String> params, @PathVariable("id") String id) {
-    	String titulo = params.get("tit");
-    	String problema = params.get("prob");
-    	String receita = params.get("rec");    	
-    	String autor = params.get("auto"); 
-    	String dific = params.get("dif"); 
-    	Recipe r=AbstractDomainObject.fromExternalId(id);
-        r.delete();	
-        
-    Recipe recipe=new Recipe(titulo, problema, receita, autor, dific);
-    return "redirect:/recipes/"+recipe.getExternalId();
-    }
-    */
+	
+
+    
 }
