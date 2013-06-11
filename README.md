@@ -6,6 +6,10 @@
 
 ## Changelog
 
+#### Versão 1.5:
+- Receitas podem ser apagadas
+- Tag´s identificativas
+
 #### Versão 1.3:
 - Com persistências
 
