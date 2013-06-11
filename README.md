@@ -6,6 +6,9 @@
 
 ## Changelog
 
+#### Versão Final:
+- Receitas podem ser editadas
+
 #### Versão 1.5:
 - Receitas podem ser apagadas
 - Tag´s identificativas
